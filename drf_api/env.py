@@ -5,4 +5,4 @@ os.environ['API_KEY'] = '418193753265483',
 os.environ['API_SECRET'] = 'nkgHom4eTX9OomydNiOWYZj2iNA',
 os.environ['DEV'] = '1'
 os.environ['DATABASE_URL'] = "<postgres://eagchbpl:GyjcYPZ6bGoZ7JYqeEB8SgqWdG5KN63c@trumpet.db.elephantsql.com/eagchbpl>",
-os.environ.setdefault("SECRET_KEY", "13185345"),
+os.environ.setdefault["SECRET_KEY"] = "13185345",
