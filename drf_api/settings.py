@@ -47,7 +47,8 @@ if 'DEV' not in os.environ:
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
-JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token' #maybe COOKE
+JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER' : 'drf_api.serializers.CurrentUserSerializer'
@@ -57,10 +58,10 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gjlojch0+z8es7oybof2t&fn)@6(7nwf=5#n1c1l)ju9%ns$j-'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = ['8000-renatolemes-drfapi-vg760ce6tey.ws-eu101.gitpod.io',
 '8000-renatolemes-drfapi-jjcufe1ghi8.ws-eu101.gitpod.io',
 '<drf-api-renato>.herokuapp.com']
@@ -107,9 +108,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_ORIGINS = {
+ALLOWED_ORIGINS = []
+
 if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
+    ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN')
     ]
 else:
@@ -117,8 +119,7 @@ else:
         r"^https://.*\.gitpod\.io$",
     ]
 
- CORS_ALLOW_CREDENTIALS = True
-}
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'drf_api.urls'
 
