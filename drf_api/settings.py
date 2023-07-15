@@ -61,7 +61,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = '13185' #os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+DEBUG = 'DEV' in os.environ,
 ALLOWED_HOSTS = ['8000-renatolemes-drfapi-vg760ce6tey.ws-eu101.gitpod.io',
 '8000-renatolemes-drfapi-jjcufe1ghi8.ws-eu101.gitpod.io',
 '<drf-api-renato>.herokuapp.com']
@@ -87,7 +87,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
-    # 'dj_rest_auth.registration',
     'corsheaders',
 
     'profiles',
@@ -108,16 +107,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_ORIGINS = []
+ALLOWED_HOSTS = ['8000-renatolemes-drfapi-jjcufe1ghi8.ws-eu101.gitpod.io', 'https://drf-api-renato-5c98f714c67a.herokuapp.com/']
+
 
 if 'CLIENT_ORIGIN' in os.environ:
-    ALLOWED_ORIGINS = [
+    CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN')
     ]
+
 else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ]
+     CORS_ALLOWED_ORIGIN_REGEXES = [
+         r"^https://.*\.gitpod\.io$",
+     ]
 
 CORS_ALLOW_CREDENTIALS = True
 
