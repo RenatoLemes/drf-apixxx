@@ -65,7 +65,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['8000-renatolemes-drfapi-vg760ce6tey.ws-eu101.gitpod.io',
 '8000-renatolemes-drfapi-jjcufe1ghi8.ws-eu101.gitpod.io', '8000-renatolemes-drfapi-m8f0v924gyn.ws-eu101.gitpod.io' ,
-'drf-api-renato.herokuapp.com', 'drf-api-renato-5c98f714c67a.herokuapp.com/', 'localhost', '8000-renatolemes-drfapi-m8f0v924gyn.ws-eu101.gitpod.io' ]  #MUDAR AQUIII!!!!!!!
+'drf-api-renato.herokuapp.com', 'drf-api-renato-5c98f714c67a.herokuapp.com/', 'localhost', '8000-renatolemes-drfapi-m8f0v924gyn.ws-eu101.gitpod.io', 'git.heroku.com/drf-api-renato.git' ]  #MUDAR AQUIII!!!!!!!
 
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
